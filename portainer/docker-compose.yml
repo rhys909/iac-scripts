@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    networks:
+      steep-corner-net:
+        ipv4_address: 192.168.1.2
+    ports:
+      - 9000:9000
+
+networks:
+  steep-corner-net:
+    external:
+      name: sc-net

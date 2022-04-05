@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  dhcpd:
+    image: networkboot/dhcpd:latest
+
+    restart: unless-stopped
+
+    networks:
+      steep-corner-net:
+        ipv4_address: 192.168.2.65
+    
+    ports:
+      - "67:67/udp"
+
+    volumes:
+      - ./dhcpd.conf:/etc/dhcp/dhcpd.conf
+
+networks:
+  steep-corner-net:
+    external:
+      name: sc-vlan-2

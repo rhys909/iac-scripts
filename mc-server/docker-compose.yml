@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+    volumes:
+      - "mc:/data"
+    environment:
+      - EULA: "TRUE"
+      - MEMORY=1G
+      - ANNOUNCE_PLAYER_ACHIEVEMENTS=true
+      - MODE=survival
+      - TZ=Europe/London
+    healthcheck:
+      test: ["CMD", "mcstatus", "127.0.0.1:25565", "ping"]
+    restart: unless-stopped
+    networks:
+      steep-corner-net:
+        ipv4_address: 192.168.1.4
+
+volumes:
+  mc: {}
+
+networks:
+  steep-corner-net:
+    external:
+      name: sc-net
