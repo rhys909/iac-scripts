@@ -1,0 +1,4 @@
+fsutil file createnew G:\1tb.test 1099511627776
+fsutil file createnew G:\100gb.test 107374182400
+fsutil file createnew G:\10gb.test 10737418240 
+fsutil file createnew G:\1gb.test 1073741824 

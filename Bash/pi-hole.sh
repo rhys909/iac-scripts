@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "Update the system"
-apt-get update -y
+apt-get update
 apt-get upgrade -y
 
 echo "Begin Pi-Hole installation now"

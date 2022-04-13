@@ -1,5 +1,5 @@
 version: "3"
-
+# Script taken from the below github repo
 # More info at https://github.com/pi-hole/docker-pi-hole/ and https://docs.pi-hole.net/
 services:
   pihole:
